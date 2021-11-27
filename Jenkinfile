@@ -1,0 +1,12 @@
+pipeline {
+  agent any
+  stages {
+    stage ('Build') {
+      steps {
+        echo 'Bhanu Running Build automation'
+        sh './gradlew build --no-daemon'
+        archiveArtifacts artifact: 'dist/trainSchedule.zip'
+      }
+    }
+  }
+}
